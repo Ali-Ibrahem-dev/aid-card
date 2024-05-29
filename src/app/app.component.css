@@ -53,10 +53,6 @@ input[type="text"]
     transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #737373;
-}
-
 .error {
     color: #ff7f7f;
     font-size: 14px;

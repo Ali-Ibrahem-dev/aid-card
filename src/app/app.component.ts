@@ -23,13 +23,13 @@ export class AppComponent {
   downloadImg() {
     
     const myImg = document.getElementById('aid-img');
-    console.log(myImg)
     if (myImg)
       domtoimage.toJpeg(myImg, { quality: 1 }).then( (dataUrl) => {
         var link = document.createElement('a');
         link.download = `${new Date().getTime()}.jpeg`;
         link.href = dataUrl;
         link.click();
+        this.companyName.reset();
       });
   }
 }
