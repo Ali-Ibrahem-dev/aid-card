@@ -19,17 +19,15 @@ export class AppComponent {
   title = 'aid-card';
   showImage = false;
   companyName = new FormControl('', Validators.required);
-  submitForm() {
-    if (this.companyName.valid) {
-      this.showImage = true;
-    }
-  }
+  
   downloadImg() {
+    
     const myImg = document.getElementById('aid-img');
+    console.log(myImg)
     if (myImg)
       domtoimage.toJpeg(myImg, { quality: 1 }).then( (dataUrl) => {
         var link = document.createElement('a');
-        link.download = `${this.companyName.value?.toString().trim()}.jpeg`;
+        link.download = `${new Date().getTime()}.jpeg`;
         link.href = dataUrl;
         link.click();
       });

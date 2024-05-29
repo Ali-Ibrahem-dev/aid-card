@@ -1,53 +1,33 @@
-<div class="container" *ngIf="!showImage">
+<div class="container">
   <div class="logo-container">
-    <img src="../assets/istockphoto-178447404-612x612.jpg" height="80px" width="80px" alt="company-logo">
+    <img src="../assets/BCare_page-0001.jpg" alt="company-logo" />
   </div>
-
-  <div class="form-container" >
-    <label for="company-name">اسم الموظف</label>
-    <input type="text" id="company-name" [formControl]="companyName">
-    <div  class="error" *ngIf="companyName.touched && companyName.hasError('required')">
+  <div>
+    لإنشاء تصميمك الخاص
+    <p>1- ادخل الاسم</p>
+    <p>2- اضغط على إنشاء تصميم</p>
+    <p>3- اضغط على الصورة المناسبة لحفظها</p>
+  </div>
+  <div class="form-container">
+    <input
+      type="text"
+      id="company-name"
+      [formControl]="companyName"
+      placeholder="اسمك الكامل باللغة العربية"
+    />
+    <div
+      class="error"
+      *ngIf="companyName.touched && companyName.hasError('required')"
+    >
       الرجاء ملء هذا الحقل
     </div>
-    <button type="submit" (click)="submitForm()">
-      تحميل تهنئة العيد
-    </button>
+    <div class="btn-sec">
+      <button type="submit" (click)="downloadImg()">إنشاء تصميم</button>
+    </div>
   </div>
-  
 </div>
-<div class="container generatedImage" *ngIf="showImage">
+
   <div class="image-container" id="aid-img">
-    <img src="../assets/aid.png"  height="100%" width="100%" />
-    <div class="text">{{companyName.value}}</div>
+    <div class="text">{{ companyName.value }}</div>
   </div>
-</div>
-<div class="buttons-section" *ngIf="showImage">
-  <button (click)="downloadImg()">تحميل الصورة</button>
-  <button (click)="showImage = false;
-  companyName.reset()">تحرير نص أخر</button>
-</div>
-<footer>
-  <div class="background">
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900">
-      <defs>
-        <linearGradient id="bg" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color: rgba(53, 127, 242, 0.6)"></stop>
-          <stop offset="100%" style="stop-color: rgba(38, 89, 190, 0.06)"></stop>
-        </linearGradient>
-        <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
-      s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
-      </defs>
-      <g>
-        <use xlink:href="#wave" opacity=".3">
-          <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="8s" calcMode="spline" values="270 230; -334 180; 270 230" keyTimes="0; .5; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-        </use>
-        <use xlink:href="#wave" opacity=".6">
-          <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="6s" calcMode="spline" values="-270 230;243 220;-270 230" keyTimes="0; .6; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-        </use>
-        <use xlink:href="#wave" opacty=".9">
-          <animateTransform attributeName="transform" attributeType="XML" type="translate" dur="4s" calcMode="spline" values="0 230;-140 200;0 230" keyTimes="0; .4; 1" keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0" repeatCount="indefinite" />
-        </use>
-      </g>
-    </svg>
-  </div>
-</footer>
+
